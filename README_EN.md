@@ -25,7 +25,7 @@ npm run dev
 ## ✨ Features
 
 - 🧩 **Block-based Development** - Modular Agent components, as simple as building blocks
-- 🤖 **AI-Friendly** - Seamlessly compatible with Claude, Cursor, GitHub Copilot, Windsurf, Codex and other mainstream AI programming assistants
+- 🤖 **AI-Friendly** - Tool-native defaults: root `CLAUDE.md`, `AGENTS.md`, `.github/copilot-instructions.md`, `.windsurf/rules/`, `.cursor/rules/` for Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, and similar assistants
 - 📝 **Intelligent Prompts** - Deeply optimized prompt system based on Andrej Karpathy's principles
 - 🔧 **Full-stack TypeScript** - Unified frontend and backend tech stack with type safety
 - ⚡ **Ready to Use** - Pre-configured best practices, focus on business logic
@@ -35,6 +35,12 @@ npm run dev
 
 ```
 my-agent-app/
+├── CLAUDE.md                    # Claude Code (repo root)
+├── AGENTS.md                    # Cursor / Codex / Windsurf
+├── .github/
+│   └── copilot-instructions.md  # GitHub Copilot repo instructions
+├── .windsurf/rules/             # Windsurf Cascade rules
+├── .cursor/rules/               # Cursor project rules (.mdc)
 ├── src/
 │   ├── agents/          # Agent definitions
 │   ├── tools/           # Tool collections
@@ -43,10 +49,7 @@ my-agent-app/
 ├── apps/
 │   ├── web/            # Frontend app (Next.js)
 │   └── api/            # Backend API (Fastify)
-├── docs/
-│   ├── CLAUDE.md       # Claude prompts
-│   ├── CURSOR.md       # Cursor rules
-│   └── README.md       # Project documentation
+├── docs/               # Project docs (optional)
 └── tests/              # Test files
 ```
 

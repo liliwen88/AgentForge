@@ -36,6 +36,14 @@
     "url": "https://github.com/agentforge/agentforge/issues"
   },
   "homepage": "https://agentforge.dev",
+  "files": [
+    "dist",
+    "CLAUDE.md",
+    "AGENTS.md",
+    ".github",
+    ".windsurf",
+    ".cursor"
+  ],
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"

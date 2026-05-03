@@ -182,7 +182,7 @@ npm test
 
 ## 📖 相关文档
 
-- [AgentForge核心文档](../../docs/CLAUDE.md)
+- [AgentForge AI 原则（CLAUDE.md）](../../CLAUDE.md) · [AGENTS.md](../../AGENTS.md)
 - [Agent开发指南](../../docs/agent-development.md)
 - [工具开发文档](../../docs/tools.md)
 

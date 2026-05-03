@@ -25,7 +25,7 @@ npm run dev
 ## ✨ 特徴
 
 - 🧩 **ブロックベース開発** - モジュール化されたAgentコンポーネント、ブロックを積むように簡単
-- 🤖 **AIフレンドリー** - Claude、Cursor、GitHub Copilot、Windsurf、Codexなどの主流AIプログラミングアシスタントと完全互換
+- 🤖 **AIフレンドリー** - ルートの `CLAUDE.md` / `AGENTS.md`、`.github/copilot-instructions.md`、`.windsurf/rules/`、`.cursor/rules/` など各ツールの推奨配置に対応（Claude Code、Cursor、GitHub Copilot、Windsurf、Codex 等）
 - 📝 **インテリジェントプロンプト** - Andrej Karpathyの原則に基づいた深く最適化されたプロンプトシステム
 - 🔧 **フルスタックTypeScript** - フロントエンドとバックエンドで統一された技術スタック、タイプセーフ
 - ⚡ **すぐに使える** - ベストプラクティスを事前設定、ビジネスロジックに集中
@@ -35,6 +35,12 @@ npm run dev
 
 ```
 my-agent-app/
+├── CLAUDE.md                    # Claude Code（リポジトリルート）
+├── AGENTS.md                    # Cursor / Codex / Windsurf
+├── .github/
+│   └── copilot-instructions.md  # GitHub Copilot リポジトリ説明
+├── .windsurf/rules/             # Windsurf Cascade ルール
+├── .cursor/rules/               # Cursor プロジェクトルール（.mdc）
 ├── src/
 │   ├── agents/          # Agent定義
 │   ├── tools/           # ツールコレクション
@@ -43,10 +49,7 @@ my-agent-app/
 ├── apps/
 │   ├── web/            # フロントエンドアプリ (Next.js)
 │   └── api/            # バックエンドAPI (Fastify)
-├── docs/
-│   ├── CLAUDE.md       # Claudeプロンプト
-│   ├── CURSOR.md       # Cursorルール
-│   └── README.md       # プロジェクトドキュメント
+├── docs/               # プロジェクトドキュメント（任意）
 └── tests/              # テストファイル
 ```
 

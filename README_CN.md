@@ -25,7 +25,7 @@ npm run dev
 ## ✨ 特性
 
 - 🧩 **积木式开发** - 模块化Agent组件，像搭积木一样简单
-- 🤖 **AI友好** - 无缝适配Claude、Cursor、GitHub Copilot、Windsurf、Codex等主流AI编程助手
+- 🤖 **AI友好** - 按各工具约定提供根目录 `CLAUDE.md`、`AGENTS.md`，以及 `.github/copilot-instructions.md`、`.windsurf/rules/`、`.cursor/rules/`，适配 Claude Code、Cursor、GitHub Copilot、Windsurf、Codex 等
 - 📝 **智能提示词** - 基于Andrej Karpathy原则的深度优化提示词系统
 - 🔧 **全栈TypeScript** - 前后端统一技术栈，类型安全
 - ⚡ **开箱即用** - 预配置最佳实践，专注业务逻辑
@@ -35,6 +35,12 @@ npm run dev
 
 ```
 my-agent-app/
+├── CLAUDE.md                    # Claude Code（仓库根目录）
+├── AGENTS.md                    # Cursor / Codex / Windsurf
+├── .github/
+│   └── copilot-instructions.md  # GitHub Copilot 仓库说明
+├── .windsurf/rules/             # Windsurf Cascade 规则
+├── .cursor/rules/               # Cursor 项目规则（.mdc）
 ├── src/
 │   ├── agents/          # Agent定义
 │   ├── tools/           # 工具集合
@@ -43,10 +49,7 @@ my-agent-app/
 ├── apps/
 │   ├── web/            # 前端应用 (Next.js)
 │   └── api/            # 后端API (Fastify)
-├── docs/
-│   ├── CLAUDE.md       # Claude提示词
-│   ├── CURSOR.md       # Cursor规则
-│   └── README.md       # 项目文档
+├── docs/               # 项目文档（可选）
 └── tests/              # 测试文件
 ```
 

@@ -310,7 +310,7 @@ ${template === 'api' || template === 'fullstack' ? `
 
 ## 🤖 Agent开发
 
-查看 [docs/CLAUDE.md](./docs/CLAUDE.md) 了解如何使用AI助手开发Agent。
+查看根目录 [CLAUDE.md](./CLAUDE.md) 与 [AGENTS.md](./AGENTS.md) 了解如何使用 AI 助手开发 Agent。
 
 ## 📚 更多信息
 
@@ -431,81 +431,63 @@ export class ExampleTool extends BaseTool {
   await fs.writeFile(path.join(targetDir, 'src/tools/example-tool.ts'), exampleTool);
 }
 
-async function createPromptFiles(targetDir: string): Promise<void> {
-  // CLAUDE.md
-  const claudeMd = `# CLAUDE.md
-
-AgentForge项目的AI编程助手指导原则。
+function getEmbeddedAiInstructionsFallback(): string {
+  return `# AgentForge AI编程助手指导原则
 
 ## 核心原则
 
 ### 1. 思考先于编码
-- 明确假设，不隐藏困惑
-- 暴露权衡，主动寻求澄清
-- 遇到不确定时停止并提问
+- 明确假设，不隐藏困惑；暴露权衡，主动寻求澄清。
 
 ### 2. 简洁优先
-- 最小化代码解决实际问题
-- 不添加未要求的功能
-- 避免为单一用途创建抽象
+- 最小化代码解决实际问题；不添加未要求的功能。
 
 ### 3. 精确修改
-- 只修改必要的部分
-- 清理自己的"烂摊子"
-- 匹配现有代码风格
+- 只修改必要部分；匹配现有风格；清理本次改动产生的孤立代码。
 
 ### 4. 目标驱动
-- 定义成功标准并验证
-- 将任务转化为可验证目标
-- 循环直到达成目标
+- 定义可验证的成功标准；将任务写成可检查的步骤。
 
-## Agent开发规范
+## Agent 开发规范
 
-### Agent定义
-- 使用TypeScript严格模式
-- 明确定义Agent的能力和限制
-- 提供清晰的错误处理
+- TypeScript 严格模式；优先使用 BaseAgent / BaseTool 与内置能力。
+- 配置保持扁平可读；避免为少量 Agent 做复杂注册表或状态机。
+- 每个 Agent 与自定义工具配套测试；集成测试用模拟数据。
 
-### 工具开发
-- 继承BaseTool类
-- 使用Zod进行参数验证
-- 提供详细的错误信息
+## 项目约定
 
-### 测试要求
-- 每个Agent都需要测试
-- 工具函数必须有单元测试
-- 集成测试覆盖主要流程
-
-## 项目特定规则
-
-- 使用ESLint和Prettier进行代码格式化
-- 所有导出的函数和类都需要文档注释
-- 优先使用内置工具，避免重复造轮子
+- ESLint + Prettier；导出符号写 JSDoc；优先命名导出。
+- 详见官方 AgentForge 仓库根目录 CLAUDE.md 全文模板。
 `;
-  
-  await fs.writeFile(path.join(targetDir, 'docs/CLAUDE.md'), claudeMd);
+}
 
-  // CURSOR.md
-  const cursorMd = `# Cursor项目规则
+async function createPromptFiles(targetDir: string): Promise<void> {
+  const bundledClaude = path.join(__dirname, '../../../CLAUDE.md');
+  let instructionBody: string;
+  if (await fs.pathExists(bundledClaude)) {
+    instructionBody = await fs.readFile(bundledClaude, 'utf-8');
+  } else {
+    instructionBody = getEmbeddedAiInstructionsFallback();
+  }
 
-AgentForge项目的Cursor AI助手配置。
+  await fs.outputFile(path.join(targetDir, 'CLAUDE.md'), instructionBody);
 
-## 规则文件位置
-\`.cursor/rules/agentforge-rules.mdc\`
+  const agentsBody = `<!-- 与根目录 CLAUDE.md 正文一致；修改原则时请同步更新 CLAUDE.md、AGENTS.md、.github/copilot-instructions.md、.windsurf/rules/agentforge.md、.cursor/rules/agentforge.mdc。 -->\n\n${instructionBody}`;
+  await fs.outputFile(path.join(targetDir, 'AGENTS.md'), agentsBody);
+  await fs.outputFile(path.join(targetDir, '.github/copilot-instructions.md'), instructionBody);
 
-## 主要规则
+  const windsurfRule = `---
+trigger: always_on
+---
 
-1. 遵循TypeScript最佳实践
-2. 使用AgentForge核心框架
-3. 保持代码简洁和可维护
-4. 优先考虑业务价值
+${instructionBody}`;
+  await fs.outputFile(path.join(targetDir, '.windsurf/rules/agentforge.md'), windsurfRule);
 
-## 推荐设置
+  const cursorRule = `---
+description: AgentForge 项目级 AI 开发规则（与根目录 CLAUDE.md 一致）
+alwaysApply: true
+---
 
-- 启用TypeScript支持
-- 启用ESLint集成
-- 使用AgentForge代码模板
-`;
-  
-  await fs.writeFile(path.join(targetDir, 'docs/CURSOR.md'), cursorMd);
+${instructionBody}`;
+  await fs.outputFile(path.join(targetDir, '.cursor/rules/agentforge.mdc'), cursorRule);
 }

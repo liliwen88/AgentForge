@@ -939,7 +939,9 @@ AgentForge深度集成Andrej Karpathy观察到的LLM编程行为模式，提供�
 
 ### Claude集成
 
-#### CLAUDE.md文件
+#### 根目录 `CLAUDE.md` 与 `AGENTS.md`
+
+Claude Code 读取仓库根目录 `CLAUDE.md`；Cursor、Codex、Windsurf 等读取根目录 `AGENTS.md`（内容对齐）。脚手架亦会生成 `.github/copilot-instructions.md`、`.windsurf/rules/agentforge.md`、`.cursor/rules/agentforge.mdc`。不在 `docs/` 下放置原则正文或工具路径索引文件。
 
 ```markdown
 # AgentForge AI编程助手指导原则
@@ -963,10 +965,10 @@ AgentForge深度集成Andrej Karpathy观察到的LLM编程行为模式，提供�
 
 ### Cursor集成
 
-#### 项目规则文件
+#### Cursor 项目规则文件
 
 ```markdown
-# .cursor/rules/agentforge-rules.mdc
+# .cursor/rules/agentforge.mdc
 
 # AgentForge项目开发规则
 
