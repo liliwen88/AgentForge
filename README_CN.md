@@ -1,5 +1,7 @@
 # AgentForge
 
+[English](./README_EN.md) | [中文](./README_CN.md) | [日本語](./README_JA.md)
+
 > 专为业务开发设计的TypeScript全栈+AI脚手架，让AI Agent开发像搭积木一样简单
 
 [![npm version](https://badge.fury.io/js/agentforge.svg)](https://badge.fury.io/js/agentforge)

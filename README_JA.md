@@ -1,5 +1,7 @@
 # AgentForge
 
+[English](./README_EN.md) | [中文](./README.md) | [日本語](./README_JA.md)
+
 > ビジネス開発向けに設計されたTypeScriptフルスタック+AIスキャフォールド。AI Agent開発をブロックを積むように簡単にします
 
 [![npm version](https://badge.fury.io/js/agentforge.svg)](https://badge.fury.io/js/agentforge)

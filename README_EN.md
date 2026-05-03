@@ -1,5 +1,7 @@
 # AgentForge
 
+[English](./README_EN.md) | [中文](./README.md) | [日本語](./README_JA.md)
+
 > A TypeScript full-stack + AI scaffold designed for business development, making AI Agent development as simple as building blocks
 
 [![npm version](https://badge.fury.io/js/agentforge.svg)](https://badge.fury.io/js/agentforge)
