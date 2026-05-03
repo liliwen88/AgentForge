@@ -100,11 +100,7 @@ AgentForgeはAndrej Karpathyが観察したLLMプログラミングの落とし�
 
 ## 📚 ドキュメント
 
-- [クイックスタート](./docs/getting-started.md)
-- [Agent開発ガイド](./docs/agent-development.md)
-- [コンポーネントライブラリドキュメント](./docs/components.md)
-- [ベストプラクティス](./docs/best-practices.md)
-- [APIリファレンス](./docs/api-reference.md)
+- [技術実装とアーキテクチャ](./docs/TECHNICAL_IMPLEMENTATION.md)
 
 ## 🤝 貢献
 

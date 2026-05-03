@@ -100,11 +100,7 @@ AgentForge is based on the LLM programming pitfalls observed by Andrej Karpathy,
 
 ## 📚 Documentation
 
-- [Quick Start](./docs/getting-started.md)
-- [Agent Development Guide](./docs/agent-development.md)
-- [Component Library Documentation](./docs/components.md)
-- [Best Practices](./docs/best-practices.md)
-- [API Reference](./docs/api-reference.md)
+- [Technical implementation & architecture](./docs/TECHNICAL_IMPLEMENTATION.md)
 
 ## 🤝 Contributing
 

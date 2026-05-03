@@ -295,6 +295,11 @@ npm run dev
 
 \`\`\`
 ${projectName}/
+├── CLAUDE.md                    # Claude Code
+├── AGENTS.md                    # Cursor / Codex / Windsurf
+├── .github/copilot-instructions.md
+├── .windsurf/rules/
+├── .cursor/rules/
 ├── src/
 │   ├── agents/          # Agent定义
 │   ├── tools/           # 工具集合
@@ -304,7 +309,7 @@ ${template === 'web' || template === 'fullstack' ? `
 ├── apps/web/            # 前端应用` : ''}
 ${template === 'api' || template === 'fullstack' ? `
 ├── apps/api/            # 后端API` : ''}
-├── docs/                # 文档
+├── docs/                # 项目文档（可选）
 └── tests/               # 测试文件
 \`\`\`
 

@@ -100,11 +100,7 @@ AgentForge基于Andrej Karpathy观察到的LLM编程陷阱，提供四大核心�
 
 ## 📚 文档
 
-- [快速开始](./docs/getting-started.md)
-- [Agent开发指南](./docs/agent-development.md)
-- [组件库文档](./docs/components.md)
-- [最佳实践](./docs/best-practices.md)
-- [API参考](./docs/api-reference.md)
+- [技术实现与架构说明](./docs/TECHNICAL_IMPLEMENTATION.md)
 
 ## 🤝 贡献
 
