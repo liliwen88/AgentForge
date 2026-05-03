@@ -1,0 +1,38 @@
+{
+  "name": "@agentforge/core",
+  "version": "0.1.0",
+  "description": "AgentForge核心框架 - AI Agent开发的核心接口和基础实现",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "ai-agent",
+    "agent-framework",
+    "typescript",
+    "core"
+  ],
+  "author": "AgentForge Team",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.22.4",
+    "eventemitter3": "^5.0.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.7",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

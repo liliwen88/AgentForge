@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@agentforge/core": ["./packages/core/src"],
+      "@agentforge/core/*": ["./packages/core/src/*"],
+      "@agentforge/components": ["./packages/components/src"],
+      "@agentforge/components/*": ["./packages/components/src/*"],
+      "@agentforge/tools": ["./packages/tools/src"],
+      "@agentforge/tools/*": ["./packages/tools/src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "packages/*/src/**/*",
+    "apps/*/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next",
+    "coverage"
+  ]
+}

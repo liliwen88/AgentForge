@@ -1,0 +1,49 @@
+{
+  "name": "@agentforge/cli",
+  "version": "0.1.0",
+  "description": "AgentForge命令行工具 - 项目脚手架和开发工具",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "agentforge": "dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "cli",
+    "scaffolding",
+    "agent-forge",
+    "typescript"
+  ],
+  "author": "AgentForge Team",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "fs-extra": "^11.1.1",
+    "handlebars": "^4.7.8",
+    "semver": "^7.5.4",
+    "zod": "^3.22.4",
+    "@agentforge/templates": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/fs-extra": "^11.0.4",
+    "@types/semver": "^7.5.5",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
