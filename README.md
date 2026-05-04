@@ -93,7 +93,7 @@ AgentForge基于Andrej Karpathy观察到的LLM编程陷阱，提供四大核心�
 
 ### 前端
 - **框架**: Next.js 14 (App Router)
-- **UI**: TailwindCSS + shadcn/ui
+- **UI**: TailwindCSS（shadcn/ui 组件可作为可选模板）
 - **状态管理**: Zustand
 - **类型检查**: TypeScript strict mode
 
@@ -106,8 +106,8 @@ AgentForge基于Andrej Karpathy观察到的LLM编程陷阱，提供四大核心�
 
 ### AI集成
 - **SDK**: OpenAI、Anthropic官方SDK
-- **向量数据库**: Pinecone/Chroma
-- **本地模型**: Ollama集成
+- **向量数据库（可选）**: Pinecone/Chroma（通过可选集成包）
+- **本地模型（可选）**: Ollama（通过可选集成）
 - **工具调用**: Function calling标准化
 
 ## 📚 文档
