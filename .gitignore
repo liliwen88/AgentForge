@@ -74,3 +74,6 @@ models/
 .agentforge/
 workspace/
 .turbo/daemon/9b08bf0b9ef7a5cb-turbo.log.2026-05-04
+
+# Lingma
+.lingma/
