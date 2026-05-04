@@ -13,41 +13,69 @@
 
 ## 项目概述
 
-AgentForge是一个专为业务开发设计的TypeScript全栈+AI脚手架，其核心目标是让AI Agent开发像搭积木一样简单。项目基于Andrej Karpathy对LLM编程行为的深刻洞察，提供了防止常见编程陷阱的完整解决方案。
+AgentForge不是单纯AI Agent原型工具，而是面向企业业务开发的TypeScript全栈脚手架。它将前端、后端、工具、测试与AI助手协作规则统一在一个仓库中，适合快速构建SaaS、内部业务系统和行业型产品。
+
+项目基于Andrej Karpathy对LLM编程行为的深刻洞察，提供了防止常见编程陷阱的完整解决方案。
 
 ### 核心价值
 
-- **积木式开发**: 模块化Agent组件，快速组合和扩展
-- **AI友好**: 深度集成主流AI编程助手，提供智能指导
-- **业务导向**: 专注解决实际问题，避免过度工程化
-- **类型安全**: 全栈TypeScript，编译时错误检查
+- **业务开发基座**: 提供可组合的业务模块和模板，而不是只做Agent实验
+- **AI助手友好**: 内置 Copilot、Claude Code、Cursor、Windsurf 等助手规则
+- **全栈统一**: 前端、后端与工具链都用同一套TypeScript类型系统
+- **业务场景优先**: 直接支持客服、订单、知识库、自动化流程等实际功能
+- **类型安全**: 全栈TypeScript严格模式，编译时错误检查
 
 ### 技术栈
 
-- **语言**: TypeScript 5.3+ (严格模式)
-- **构建**: Turbo (monorepo管理)
+#### 前端
+- **框架**: Next.js 14 (App Router)
+- **UI**: TailwindCSS
+- **状态管理**: Zustand
+- **类型检查**: TypeScript strict mode
+
+#### 后端
 - **运行时**: Node.js 18+
-- **验证**: Zod (类型验证)
+- **框架**: Fastify
+- **ORM**: Prisma
+- **验证**: Zod
+- **测试**: Vitest
+
+#### 核心依赖
+- **构建**: Turbo (monorepo管理)
 - **事件**: EventEmitter3
 - **CLI**: Commander.js + Inquirer.js
+- **AI集成**: OpenAI、Anthropic官方SDK
 
 ## 架构设计
 
 ### 整体架构
 
+AgentForge采用Monorepo架构，包含框架核心包和应用模板两部分：
+
 ```
 AgentForge/
-├── packages/core/           # 核心框架
-│   ├── types.ts            # 类型定义
-│   ├── agent.ts            # Agent基类
-│   ├── memory.ts           # 记忆系统
-│   ├── tools.ts            # 工具系统
-│   └── runner.ts           # 运行器
-├── src/cli/                # 命令行工具
-│   ├── index.ts            # CLI入口
-│   └── commands/           # 命令实现
-├── docs/                   # 文档
-└── examples/               # 示例项目
+├── CLAUDE.md                    # Claude Code 配置
+├── AGENTS.md                    # Cursor/Codex/Windsurf 配置
+├── .github/
+│   └── copilot-instructions.md  # GitHub Copilot 说明
+├── .windsurf/rules/             # Windsurf Cascade 规则
+├── .cursor/rules/               # Cursor 项目规则
+├── packages/                    # 核心包
+│   ├── core/                   # Agent核心框架
+│   │   ├── types.ts            # 类型定义
+│   │   ├── agent.ts            # Agent基类
+│   │   ├── memory.ts           # 记忆系统
+│   │   ├── tools.ts            # 工具系统
+│   │   └── runner.ts           # 运行器
+│   ├── cli/                    # 命令行工具
+│   ├── tools/                  # 工具集合
+│   ├── templates/              # 项目模板
+│   └── components/             # UI组件库
+├── apps/                        # 应用示例
+│   ├── web/                    # 前端应用 (Next.js)
+│   └── api/                    # 后端API (Fastify)
+├── examples/                   # 示例项目
+└── docs/                       # 文档
 ```
 
 ### 设计原则
@@ -64,6 +92,30 @@ AgentForge/
 - **Memory**: Agent的记忆存储系统
 - **Event**: Agent间通信机制
 - **Runner**: Agent生命周期管理
+
+### 生成项目结构
+
+使用 `agentforge create` 创建的项目结构如下：
+
+```
+my-agent-app/
+├── CLAUDE.md                    # Claude Code（仓库根目录）
+├── AGENTS.md                    # Cursor / Codex / Windsurf
+├── .github/
+│   └── copilot-instructions.md  # GitHub Copilot 仓库说明
+├── .windsurf/rules/             # Windsurf Cascade 规则
+├── .cursor/rules/               # Cursor 项目规则（.mdc）
+├── src/
+│   ├── agents/                  # Agent定义
+│   ├── tools/                   # 工具集合
+│   ├── components/              # UI组件
+│   └── utils/                   # 工具函数
+├── apps/
+│   ├── web/                     # 前端应用 (Next.js)
+│   └── api/                     # 后端API (Fastify)
+├── docs/                        # 项目文档（可选）
+└── tests/                       # 测试文件
+```
 
 ## 核心模块详解
 
@@ -709,15 +761,19 @@ export class DatabaseMemory implements IMemory {
 
 ### 架构设计
 
-CLI工具基于Commander.js构建，采用模块化命令结构：
+CLI工具基于Commander.js构建，采用模块化命令结构，位于 `packages/cli/`：
 
 ```
-src/cli/
-├── index.ts              # CLI入口和路由
-└── commands/
-    ├── create.ts          # 创建项目命令
-    ├── add-agent.ts       # 添加Agent命令
-    └── list-tools.ts      # 列出工具命令
+packages/cli/
+├── src/
+│   ├── index.ts              # CLI入口和路由
+│   └── commands/
+│       ├── create.ts          # 创建项目命令
+│       ├── add-agent.ts       # 添加Agent命令
+│       ├── init.ts            # 初始化命令
+│       └── list-tools.ts      # 列出工具命令
+├── package.json
+└── tsconfig.json
 ```
 
 ### 主要命令
@@ -900,26 +956,27 @@ AgentForge不仅是代码框架，更是一套面向业务开发的AI助手协�
 
 #### 1. 思考先于编码
 
-- 要求助手明确说明假设和边界条件
-- 在遇到不确定时主动提问，而不是盲目生成
+- 明确假设，不隐藏困惑
+- 暴露权衡，主动寻求澄清
+- 遇到不确定时停止并提问
 
 #### 2. 简洁优先
 
-- 只实现当前业务需求
-- 不为未来假设增加不必要的抽象
-- 保持代码直接、可读、可维护
+- 最小化代码解决实际问题
+- 不添加未要求的功能
+- 避免为单一用途创建抽象
 
 #### 3. 精确修改
 
-- 限制助手的改动范围到相关文件
-- 避免无关代码重构
-- 保持现有风格一致
+- 只修改必要的部分
+- 清理自己的"烂摊子"
+- 匹配现有代码风格
 
 #### 4. 目标驱动
 
-- 先定义可验证目标
-- 在测试、注释、文档中确认结果
-- 让助手围绕目标完成实现
+- 定义成功标准并验证
+- 将任务转化为可验证目标
+- 循环直到达成目标
 
 ### 持续改进
 
@@ -1471,14 +1528,14 @@ export class PermissionManager {
 
 ## 总结
 
-AgentForge通过以下核心技术实现了"让AI Agent开发像搭积木一样简单"的目标：
+AgentForge不是单纯的AI Agent原型工具，而是面向企业业务开发的TypeScript全栈脚手架。它通过以下核心技术实现了"让AI Agent开发像搭积木一样简单"的目标：
 
-1. **类型安全**: 完整的TypeScript类型系统和Zod验证
-2. **模块化设计**: 清晰的接口定义和可插拔架构
-3. **事件驱动**: 基于EventEmitter的松耦合通信
-4. **工具系统**: 可扩展的工具注册和调用机制
-5. **记忆管理**: 多种记忆策略满足不同需求
-6. **CLI工具**: 完整的项目脚手架和管理命令
-7. **AI集成**: 深度优化的编程助手指导原则
+1. **业务开发基座**: 提供可组合的业务模块和模板，支持客服、订单、知识库、自动化流程等实际业务场景
+2. **全栈统一**: 前端(Next.js + TailwindCSS + Zustand)、后端(Fastify + Prisma)与工具链统一使用TypeScript类型系统
+3. **AI助手友好**: 内置GitHub Copilot、Claude Code、Cursor、Windsurf等助手规则，深度优化编程助手协作体验
+4. **类型安全**: 完整的TypeScript严格模式和Zod验证
+5. **模块化设计**: 清晰的接口定义和可插拔架构
+6. **工具系统**: 可扩展的工具注册和调用机制
+7. **CLI工具**: 完整的项目脚手架和管理命令
 
-这些技术特性共同构成了一个强大而易用的AI Agent开发框架，让开发者能够专注于业务逻辑而不是技术复杂性。
+这些技术特性共同构成了一个强大而易用的业务开发脚手架，让开发者能够专注于业务逻辑实现而不是技术复杂性。
