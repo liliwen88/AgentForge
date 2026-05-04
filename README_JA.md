@@ -2,7 +2,7 @@
 
 [English](./README_EN.md) | [中文](./README.md) | [日本語](./README_JA.md)
 
-> ビジネス開発向けに設計されたTypeScriptフルスタック+AIスキャフォールド。AI Agent開発をブロックを積むように簡単にします
+> ビジネス開発向けに設計されたTypeScriptフルスタック+AIスキャフォールド。企業向けプロダクト開発をブロックを積むようにシンプルにします。
 
 [![npm version](https://badge.fury.io/js/agentforge.svg)](https://badge.fury.io/js/agentforge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -24,62 +24,64 @@ cd my-agent-app
 npm run dev
 ```
 
-## ✨ 特徴
+## AgentForgeを選ぶ理由
 
-- 🧩 **ブロックベース開発** - モジュール化されたAgentコンポーネント、ブロックを積むように簡単
-- 🤖 **AIフレンドリー** - ルートの `CLAUDE.md` / `AGENTS.md`、`.github/copilot-instructions.md`、`.windsurf/rules/`、`.cursor/rules/` など各ツールの推奨配置に対応（Claude Code、Cursor、GitHub Copilot、Windsurf、Codex 等）
-- 📝 **インテリジェントプロンプト** - Andrej Karpathyの原則に基づいた深く最適化されたプロンプトシステム
-- 🔧 **フルスタックTypeScript** - フロントエンドとバックエンドで統一された技術スタック、タイプセーフ
-- ⚡ **すぐに使える** - ベストプラクティスを事前設定、ビジネスロジックに集中
-- 🎯 **ビジネス志向** - 過剰エンジニアリングを避け、実際の問題解決に集中
+AgentForgeは単なるAI Agentの実験プラットフォームではなく、企業のビジネス開発を支えるTypeScript全栈スキャフォールドです。フロントエンド、バックエンド、ツール連携、AIアシスタント用のルールを1つのリポジトリに統合し、チームが実際のプロダクトを素早く構築できます。
 
-## 📦 プロジェクト構造
+- ✅ 事業開発の基盤：SaaSや内部業務システムを再利用可能なモジュールで構築
+- ✅ AIアシスト対応：Copilot、Claude Code、Cursor、Windsurfなどの支援ルールを標準提供
+- ✅ フルスタック統一：UI、API、ツールを同じTypeScript型で連携
+- ✅ 実用価値重視：顧客対応、受注管理、ナレッジ検索、自動化などに対応
+- ✅ ローコードの代替：開発者による保守性と拡張性を担保しつつ、高速に立ち上げ
+
+## ✨ コア機能
+
+- 🧩 **ブロック型開発** - Agent、ツール、UI、API、ワークフローを増やしながら組み合わせ
+- 🤖 **AIアシスタント対応** - ルート `CLAUDE.md`、`AGENTS.md`、`.github/copilot-instructions.md`、`.windsurf/rules/`、`.cursor/rules/`
+- 🧠 **プロンプト規約** - 主流AIアシスタントに対して一貫した開発ガイドラインを提供
+- 🔧 **フルスタックTypeScript** - 型安全なエンドツーエンド開発
+- ⚡ **すぐ使える** - Fastifyバックエンド、Next.jsフロントエンド、検証、テスト、AIツール統合を含む
+- 🧭 **企業志向** - 過剰な設計を避け、ビジネス成果に直結する実装を優先
+
+## 推奨プロジェクト構成
 
 ```
 my-agent-app/
-├── CLAUDE.md                    # Claude Code（リポジトリルート）
-├── AGENTS.md                    # Cursor / Codex / Windsurf
+├── CLAUDE.md                    # Claude Code / リポジトリ共通アシスタントガイド
+├── AGENTS.md                    # Cursor / Codex / Windsurf アシスタントガイド
 ├── .github/
-│   └── copilot-instructions.md  # GitHub Copilot リポジトリ説明
+│   └── copilot-instructions.md  # GitHub Copilot 向け指示
 ├── .windsurf/rules/             # Windsurf Cascade ルール
 ├── .cursor/rules/               # Cursor プロジェクトルール（.mdc）
 ├── src/
-│   ├── agents/          # Agent定義
-│   ├── tools/           # ツールコレクション
+│   ├── agents/          # Agent定義や業務ワークフロー
+│   ├── tools/           # 業務ツール、外部サービス接続
 │   ├── components/      # UIコンポーネント
-│   └── utils/           # ユーティリティ関数
+│   └── utils/           # 共通ヘルパー
 ├── apps/
 │   ├── web/            # フロントエンドアプリ (Next.js)
 │   └── api/            # バックエンドAPI (Fastify)
-├── docs/               # プロジェクトドキュメント（任意）
-└── tests/              # テストファイル
+├── docs/               # ドキュメントとプロダクト説明
+└── tests/              # 単体・統合テスト
 ```
 
-## 🎯 コア原則
+## 代表的な業務シナリオ
 
-AgentForgeはAndrej Karpathyが観察したLLMプログラミングの落とし穴に基づき、4つのコア原則を提供します：
+- SaaS機能の迅速な立ち上げ：ユーザー管理、受注、権限、ダッシュボード
+- 社内自動化：カスタマーサポートアシスタント、ナレッジベース、承認ワークフロー
+- データ・ツール連携：CRM、ERP、外部API、ベクター検索、ドキュメント検索
+- AIアシスト開発：コードアシスタントにプロジェクトのルールを理解させ、ビジネス実装に集中させる
 
-### 1. コーディングの前に考える
-- 仮定を明確にし、混乱を隠さない
-- トレードオフを暴露し、積極的に明確化を求める
-- 不確実な場合は停止して質問する
+## AIアシスタント連携
 
-### 2. シンプルさを優先  
-- 実際の問題を解決するためにコードを最小化
-- 要求されていない機能を追加しない
-- 単一目的のために抽象化を作成しない
+AgentForgeは、主流アシスタントがプロジェクトの目的、コーディングルール、許容範囲を理解しやすいように設計されています。
 
-### 3. 正確な修正
-- 必要な部分のみを修正
-- 自分の「散らかり」を片付ける
-- 既存のコードスタイルに合わせる
+- `CLAUDE.md` / `AGENTS.md`: Claude Code、Cursor、Codex、Windsurf などのルートレベルガイド
+- `.github/copilot-instructions.md`: GitHub Copilot 向け指示
+- `.windsurf/rules/` / `.cursor/rules/`: 一貫した挙動を保つ専用ルール
+- `docs/TECHNICAL_IMPLEMENTATION.md`: アーキテクチャ、業務ワークフロー、AI連携の技術説明
 
-### 4. ゴール駆動
-- 成功基準を定義し検証する
-- タスクを検証可能なゴールに変換する
-- ゴール達成まで反復する
-
-## 🛠️ 技術スタック
+## 🛠️ テックスタック
 
 ### フロントエンド
 - **フレームワーク**: Next.js 14 (App Router)
@@ -98,7 +100,7 @@ AgentForgeはAndrej Karpathyが観察したLLMプログラミングの落とし�
 - **SDK**: OpenAI、Anthropic公式SDK
 - **ベクターデータベース**: Pinecone/Chroma
 - **ローカルモデル**: Ollama統合
-- **ツール呼び出し**: Function calling標準化
+- **ツール呼び出し**: Function calling 標準化
 
 ## 📚 ドキュメント
 
@@ -114,4 +116,4 @@ MIT License - 詳細は[LICENSE](./LICENSE)ファイルを確認してくださ�
 
 ## 🙏 謝辞
 
-[Andrej Karpathy](https://github.com/karpathy)のLLMプログラミング行動に関する深い洞察、および[andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills)プロジェクトの優れた実践に基づいています。
+[Andrej Karpathy](https://github.com/karpathy)のLLMプログラミングに関する洞察と、[andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills)の実践に感謝します。

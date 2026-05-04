@@ -24,14 +24,24 @@ cd my-agent-app
 npm run dev
 ```
 
-## ✨ Features
+## Why AgentForge
 
-- 🧩 **Block-based Development** - Modular Agent components, as simple as building blocks
-- 🤖 **AI-Friendly** - Tool-native defaults: root `CLAUDE.md`, `AGENTS.md`, `.github/copilot-instructions.md`, `.windsurf/rules/`, `.cursor/rules/` for Claude Code, Cursor, GitHub Copilot, Windsurf, Codex, and similar assistants
-- 📝 **Intelligent Prompts** - Deeply optimized prompt system based on Andrej Karpathy's principles
-- 🔧 **Full-stack TypeScript** - Unified frontend and backend tech stack with type safety
-- ⚡ **Ready to Use** - Pre-configured best practices, focus on business logic
-- 🎯 **Business-Oriented** - Avoid over-engineering, focus on solving real problems
+AgentForge is built as a business-ready TypeScript scaffold, not just an AI Agent playground. It combines frontend, backend, tool integration, and AI assistant collaboration rules in a single repo to help teams ship real products faster.
+
+- ✅ Business foundation: build SaaS, internal tools, or domain workflows with reusable modules
+- ✅ AI-assisted development: with Copilot, Claude Code, Cursor, Windsurf rules included
+- ✅ Full-stack consistency: same TypeScript types for UI, API, and tools
+- ✅ Practical value: supports customer service, order flow, knowledge search, and automation
+- ✅ Alternative to low-code: keep maintainable code and developer control while accelerating delivery
+
+## ✨ Core Capabilities
+
+- 🧩 **Block-based development** - compose Agents, tools, UI, APIs, and workflows incrementally
+- 🤖 **AI assistant friendly** - root-level `CLAUDE.md`, `AGENTS.md`, `.github/copilot-instructions.md`, `.windsurf/rules/`, `.cursor/rules/`
+- 🧠 **Prompt-aware rules** - consistent guidance for mainstream AI coding assistants
+- 🔧 **Full-stack TypeScript** - type-safe end-to-end development
+- ⚡ **Ready to ship** - includes backend Fastify, frontend Next.js, validation, tests, and AI tool integration
+- 🧭 **Enterprise orientation** - avoid over-engineering and focus on business outcomes
 
 ## 📦 Project Structure
 

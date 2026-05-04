@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3+-blue.svg)](https://www.typescriptlang.org/)
 
-## 🚀 快速开始
+## 🚀 立即起步
 
 ### 安装
 
@@ -24,14 +24,24 @@ cd my-agent-app
 npm run dev
 ```
 
+## 为什么选择 AgentForge
+
+AgentForge不是单纯AI Agent原型工具，而是面向企业业务开发的TypeScript全栈脚手架。它将前端、后端、工具、测试与AI助手协作规则统一在一个仓库中，适合快速构建SaaS、内部业务系统和行业型产品。
+
+- ✅ 业务开发基座：提供可组合的业务模块和模板，而不是只做Agent实验
+- ✅ AI助手友好：内置 Copilot、Claude Code、Cursor、Windsurf 等助手规则
+- ✅ 全栈统一：前端、后端与工具链都用同一套TypeScript类型系统
+- ✅ 业务场景优先：直接支持客服、订单、知识库、自动化流程等实际功能
+- ✅ 替代传统低代码/SaaS：开发者可在代码中保留可维护性和扩展性，同时享受助手加速
+
 ## ✨ 特性
 
-- 🧩 **积木式开发** - 模块化Agent组件，像搭积木一样简单
-- 🤖 **AI友好** - 按各工具约定提供根目录 `CLAUDE.md`、`AGENTS.md`，以及 `.github/copilot-instructions.md`、`.windsurf/rules/`、`.cursor/rules/`，适配 Claude Code、Cursor、GitHub Copilot、Windsurf、Codex 等
-- 📝 **智能提示词** - 基于Andrej Karpathy原则的深度优化提示词系统
+- 🧩 **积木式开发** - 业务功能、Agent、工具、UI、API 模块可增量组合
+- 🤖 **AI助手友好** - 提供根目录 `CLAUDE.md`、`AGENTS.md`、`.github/copilot-instructions.md`、`.windsurf/rules/`、`.cursor/rules/`
+- 🧠 **业务驱动提示词** - 规则文件让主流AI助手理解项目目标和边界
 - 🔧 **全栈TypeScript** - 前后端统一技术栈，类型安全
 - ⚡ **开箱即用** - 预配置最佳实践，专注业务逻辑
-- 🎯 **业务导向** - 避免过度工程化，专注解决实际问题
+- 🎯 **企业导向** - 避免过度工程化，专注可交付业务成果
 
 ## 📦 项目结构
 
