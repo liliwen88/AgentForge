@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { z } from 'zod';
-import { AgentRunner, AgentConfig } from '@agentforge/core';
+import { getAgent } from '../agents';
 
 const SendMessageSchema = z.object({
   agentId: z.string(),
@@ -9,12 +9,10 @@ const SendMessageSchema = z.object({
   metadata: z.record(z.any()).optional(),
 });
 
-const runner = new AgentRunner();
-
 export async function chatRoutes(fastify: FastifyInstance) {
   fastify.post('/message', async (request, reply) => {
     const validatedData = SendMessageSchema.parse(request.body);
-    const agent = runner.getAgent(validatedData.agentId);
+    const agent = getAgent(validatedData.agentId);
 
     if (!agent) {
       reply.status(404);
@@ -45,7 +43,7 @@ export async function chatRoutes(fastify: FastifyInstance) {
 
   fastify.get('/history/:agentId', async (request, reply) => {
     const { agentId } = request.params as { agentId: string };
-    const agent = runner.getAgent(agentId);
+    const agent = getAgent(agentId);
 
     if (!agent) {
       reply.status(404);
@@ -59,7 +57,7 @@ export async function chatRoutes(fastify: FastifyInstance) {
 
   fastify.delete('/history/:agentId', async (request, reply) => {
     const { agentId } = request.params as { agentId: string };
-    const agent = runner.getAgent(agentId);
+    const agent = getAgent(agentId);
 
     if (!agent) {
       reply.status(404);

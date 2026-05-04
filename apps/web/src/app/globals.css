@@ -2,54 +2,709 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   DESIGN SYSTEM - AgentForge
+   ============================================ */
+
 @layer base {
   :root {
+    /* ============================================
+       COLOR PALETTE - HSL Format
+       ============================================ */
+    
+    /* Primary Colors - Professional Blue */
+    --color-primary-50: 214 100% 97%;
+    --color-primary-100: 214 100% 93%;
+    --color-primary-200: 214 100% 85%;
+    --color-primary-300: 214 100% 75%;
+    --color-primary-400: 214 100% 65%;
+    --color-primary-500: 214 100% 55%;
+    --color-primary-600: 214 100% 45%;
+    --color-primary-700: 214 100% 35%;
+    --color-primary-800: 214 100% 25%;
+    --color-primary-900: 214 100% 15%;
+    
+    /* Secondary Colors - Teal/Cyan */
+    --color-secondary-50: 180 60% 97%;
+    --color-secondary-100: 180 60% 93%;
+    --color-secondary-200: 180 60% 85%;
+    --color-secondary-300: 180 60% 75%;
+    --color-secondary-400: 180 60% 65%;
+    --color-secondary-500: 180 60% 55%;
+    --color-secondary-600: 180 60% 45%;
+    --color-secondary-700: 180 60% 35%;
+    --color-secondary-800: 180 60% 25%;
+    --color-secondary-900: 180 60% 15%;
+    
+    /* Accent Colors - Orange/Amber */
+    --color-accent-50: 35 100% 97%;
+    --color-accent-100: 35 100% 93%;
+    --color-accent-200: 35 100% 85%;
+    --color-accent-300: 35 100% 75%;
+    --color-accent-400: 35 100% 65%;
+    --color-accent-500: 35 100% 55%;
+    --color-accent-600: 35 100% 45%;
+    --color-accent-700: 35 100% 35%;
+    --color-accent-800: 35 100% 25%;
+    --color-accent-900: 35 100% 15%;
+    
+    /* Success Colors - Green */
+    --color-success-50: 145 60% 97%;
+    --color-success-100: 145 60% 93%;
+    --color-success-200: 145 60% 85%;
+    --color-success-300: 145 60% 75%;
+    --color-success-400: 145 60% 65%;
+    --color-success-500: 145 60% 55%;
+    --color-success-600: 145 60% 45%;
+    --color-success-700: 145 60% 35%;
+    --color-success-800: 145 60% 25%;
+    --color-success-900: 145 60% 15%;
+    
+    /* Warning Colors - Amber */
+    --color-warning-50: 45 100% 97%;
+    --color-warning-100: 45 100% 93%;
+    --color-warning-200: 45 100% 85%;
+    --color-warning-300: 45 100% 75%;
+    --color-warning-400: 45 100% 65%;
+    --color-warning-500: 45 100% 55%;
+    --color-warning-600: 45 100% 45%;
+    --color-warning-700: 45 100% 35%;
+    --color-warning-800: 45 100% 25%;
+    --color-warning-900: 45 100% 15%;
+    
+    /* Error Colors - Red */
+    --color-error-50: 0 70% 97%;
+    --color-error-100: 0 70% 93%;
+    --color-error-200: 0 70% 85%;
+    --color-error-300: 0 70% 75%;
+    --color-error-400: 0 70% 65%;
+    --color-error-500: 0 70% 55%;
+    --color-error-600: 0 70% 45%;
+    --color-error-700: 0 70% 35%;
+    --color-error-800: 0 70% 25%;
+    --color-error-900: 0 70% 15%;
+    
+    /* Neutral Colors - Slate Gray */
+    --color-neutral-50: 215 25% 97%;
+    --color-neutral-100: 215 25% 93%;
+    --color-neutral-200: 215 25% 85%;
+    --color-neutral-300: 215 25% 75%;
+    --color-neutral-400: 215 25% 65%;
+    --color-neutral-500: 215 25% 55%;
+    --color-neutral-600: 215 25% 45%;
+    --color-neutral-700: 215 25% 35%;
+    --color-neutral-800: 215 25% 25%;
+    --color-neutral-900: 215 25% 15%;
+    
+    /* ============================================
+       SEMANTIC COLOR TOKENS
+       ============================================ */
+    
+    /* Backgrounds */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background-secondary: 215 25% 98%;
+    --background-muted: 215 25% 96%;
+    --background-inverse: 215 25% 15%;
+    
+    /* Foregrounds/Text */
+    --foreground: 215 25% 15%;
+    --foreground-secondary: 215 25% 35%;
+    --foreground-muted: 215 25% 55%;
+    --foreground-inverse: 0 0% 100%;
+    
+    /* Component-specific */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --popover-foreground: 215 25% 15%;
+    --input: 215 25% 93%;
+    --input-border: 215 25% 85%;
+    --ring: 214 100% 55%;
+    
+    /* Brand Colors */
+    --primary: 214 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 100% 45%;
+    --primary-active: 214 100% 35%;
+    
+    --secondary: 180 60% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 180 60% 45%;
+    --secondary-active: 180 60% 35%;
+    
+    --accent: 35 100% 55%;
+    --accent-foreground: 215 25% 15%;
+    --accent-hover: 35 100% 45%;
+    --accent-active: 35 100% 35%;
+    
+    /* Status Colors */
+    --success: 145 60% 55%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 100% 55%;
+    --warning-foreground: 215 25% 15%;
+    --error: 0 70% 55%;
+    --error-foreground: 0 0% 100%;
+    --info: 214 100% 55%;
+    --info-foreground: 0 0% 100%;
+    
+    /* Border & Divider */
+    --border: 215 25% 85%;
+    --border-light: 215 25% 93%;
+    --border-dark: 215 25% 75%;
+    --divider: 215 25% 90%;
+    
+    /* Overlay */
+    --overlay: 215 25% 15% / 0.5;
+    --backdrop: 0 0% 100% / 0.8;
+    
+    /* ============================================
+       SPACING SCALE
+       ============================================ */
+    --space-xs: 0.25rem;    /* 4px */
+    --space-sm: 0.5rem;     /* 8px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 3rem;      /* 48px */
+    --space-3xl: 4rem;      /* 64px */
+    
+    /* ============================================
+       TYPOGRAPHY SCALE
+       ============================================ */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+    
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+    
+    /* Font Weights */
+    --font-thin: 100;
+    --font-extralight: 200;
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    --font-black: 900;
+    
+    /* ============================================
+       BORDER RADIUS SCALE
+       ============================================ */
+    --radius-none: 0;
+    --radius-sm: 0.125rem;  /* 2px */
+    --radius-md: 0.25rem;   /* 4px */
+    --radius-lg: 0.375rem;  /* 6px */
+    --radius-xl: 0.5rem;    /* 8px */
+    --radius-2xl: 0.75rem;  /* 12px */
+    --radius-3xl: 1rem;     /* 16px */
+    --radius-full: 9999px;
+    
+    /* ============================================
+       SHADOWS
+       ============================================ */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+    
+    /* ============================================
+       TRANSITIONS & ANIMATIONS
+       ============================================ */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Z-Index Scale */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    
+    /* Legacy radius for backwards compatibility */
     --radius: 0.5rem;
   }
 
+  /* Dark Mode */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    /* Backgrounds */
+    --background: 215 25% 10%;
+    --background-secondary: 215 25% 12%;
+    --background-muted: 215 25% 15%;
+    --background-inverse: 215 25% 95%;
+    
+    /* Foregrounds/Text */
+    --foreground: 215 25% 95%;
+    --foreground-secondary: 215 25% 75%;
+    --foreground-muted: 215 25% 55%;
+    --foreground-inverse: 215 25% 10%;
+    
+    /* Component-specific */
+    --card: 215 25% 12%;
+    --card-foreground: 215 25% 95%;
+    --popover: 215 25% 12%;
+    --popover-foreground: 215 25% 95%;
+    --input: 215 25% 20%;
+    --input-border: 215 25% 25%;
+    --ring: 214 100% 65%;
+    
+    /* Brand Colors - Adjusted for dark mode */
+    --primary: 214 100% 65%;
+    --primary-foreground: 215 25% 10%;
+    --primary-hover: 214 100% 75%;
+    --primary-active: 214 100% 85%;
+    
+    --secondary: 180 60% 65%;
+    --secondary-foreground: 215 25% 10%;
+    --secondary-hover: 180 60% 75%;
+    --secondary-active: 180 60% 85%;
+    
+    --accent: 35 100% 65%;
+    --accent-foreground: 215 25% 10%;
+    --accent-hover: 35 100% 75%;
+    --accent-active: 35 100% 85%;
+    
+    /* Border & Divider */
+    --border: 215 25% 25%;
+    --border-light: 215 25% 20%;
+    --border-dark: 215 25% 30%;
+    --divider: 215 25% 22%;
+    
+    /* Shadows - Lighter for dark mode */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
   }
 }
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 
 @layer base {
   * {
     @apply border-border;
   }
+  
+  html {
+    @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+  
+  /* Selection styles */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.2);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* ============================================
+   COMPONENT STYLES (Pure CSS with HSL variables)
+   ============================================ */
+
+@layer components {
+  /* Button Base */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn:focus-visible {
+    outline: none;
+    ring: 2px solid hsl(var(--ring));
+    ring-offset: 2px;
+  }
+  
+  .btn:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn-primary:hover {
+    background-color: hsl(var(--primary-hover));
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-primary:active {
+    background-color: hsl(var(--primary-active));
+  }
+  
+  .btn-secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn-secondary:hover {
+    background-color: hsl(var(--secondary-hover));
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-outline {
+    border: 1px solid hsl(var(--input-border));
+    background-color: transparent;
+    color: hsl(var(--foreground));
+  }
+  
+  .btn-outline:hover {
+    background-color: hsl(var(--background-muted));
+    border-color: hsl(var(--border-dark));
+  }
+  
+  .btn-ghost {
+    background-color: transparent;
+    color: hsl(var(--foreground));
+  }
+  
+  .btn-ghost:hover {
+    background-color: hsl(var(--background-muted));
+  }
+  
+  .btn-destructive {
+    background-color: hsl(var(--error));
+    color: hsl(var(--error-foreground));
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn-destructive:hover {
+    background-color: hsl(var(--error) / 0.9);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Button Sizes */
+  .btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 0.375rem;
+  }
+  
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  /* Card Styles */
+  .card {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: hsl(var(--primary) / 0.3);
+    transform: translateY(-4px);
+  }
+  
+  .card-elevated {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .card-elevated:hover {
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* Input Styles */
+  .input {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    background-color: hsl(var(--input));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--input-border));
+    border-radius: 0.5rem;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .input::placeholder {
+    color: hsl(var(--foreground-muted));
+  }
+  
+  .input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+    outline: none;
+  }
+  
+  .input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .input-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+  }
+  
+  .input-lg {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  /* Badge Styles */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    transition: color 200ms, background-color 200ms;
+  }
+  
+  .badge-primary {
+    background-color: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+  
+  .badge-secondary {
+    background-color: hsl(var(--secondary) / 0.1);
+    color: hsl(var(--secondary));
+    border: 1px solid hsl(var(--secondary) / 0.2);
+  }
+  
+  .badge-success {
+    background-color: hsl(var(--success) / 0.1);
+    color: hsl(var(--success));
+    border: 1px solid hsl(var(--success) / 0.2);
+  }
+  
+  .badge-warning {
+    background-color: hsl(var(--warning) / 0.1);
+    color: hsl(var(--warning));
+    border: 1px solid hsl(var(--warning) / 0.2);
+  }
+  
+  .badge-error {
+    background-color: hsl(var(--error) / 0.1);
+    color: hsl(var(--error));
+    border: 1px solid hsl(var(--error) / 0.2);
+  }
+  
+  .badge-muted {
+    background-color: hsl(var(--background-muted));
+    color: hsl(var(--foreground-muted));
+    border: 1px solid hsl(var(--border));
+  }
+  
+  /* Avatar Styles */
+  .avatar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: hsl(var(--background-muted));
+    overflow: hidden;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .avatar-sm {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+  
+  .avatar-md {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .avatar-lg {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-hover)));
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-hover)));
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)), hsl(var(--secondary)));
+  }
+  
+  /* Glass Effect */
+  .glass {
+    background-color: hsl(var(--backdrop));
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  
+  /* Scrollbar Styles */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 9999px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--border-dark));
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+@layer utilities {
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }

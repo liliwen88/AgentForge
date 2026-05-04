@@ -2,6 +2,7 @@
   "name": "agentforge",
   "version": "0.1.0",
   "description": "专为业务开发设计的TypeScript全栈+AI脚手架，让AI Agent开发像搭积木一样简单",
+  "packageManager": "pnpm@8.15.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {

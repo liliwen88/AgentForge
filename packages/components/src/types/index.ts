@@ -1,27 +1,30 @@
-import { type AgentState, type Message, type AgentEvent } from '@agentforge/core';
-
-// UI组件通用属性
+// Base component props
 export interface BaseComponentProps {
   className?: string;
   children?: React.ReactNode;
 }
 
-// Agent相关类型
+// Agent info
 export interface AgentInfo {
   id: string;
   name: string;
   description: string;
-  status: AgentState['status'];
+  status?: 'idle' | 'running' | 'paused' | 'error';
   currentTask?: string;
   progress?: number;
 }
 
-// 消息相关类型
-export interface ChatMessage extends Message {
+// Message type
+export interface ChatMessage {
+  id: string;
+  role: 'user' | 'assistant' | 'system' | 'tool';
+  content: string;
+  timestamp: Date;
+  metadata?: Record<string, any>;
   isTyping?: boolean;
 }
 
-// 聊天界面类型
+// Chat interface props
 export interface ChatInterfaceProps extends BaseComponentProps {
   agent: AgentInfo;
   messages: ChatMessage[];
@@ -31,14 +34,14 @@ export interface ChatInterfaceProps extends BaseComponentProps {
   disabled?: boolean;
 }
 
-// Agent状态指示器类型
+// Agent status indicator props
 export interface AgentStatusIndicatorProps extends BaseComponentProps {
   agent: AgentInfo;
   showProgress?: boolean;
   size?: 'sm' | 'md' | 'lg';
 }
 
-// 工具面板类型
+// Tool panel props
 export interface ToolPanelProps extends BaseComponentProps {
   tools: Array<{
     name: string;
@@ -49,21 +52,28 @@ export interface ToolPanelProps extends BaseComponentProps {
   onToolExecute?: (toolName: string, args: any) => void;
 }
 
-// 记忆面板类型
+// Memory panel props
 export interface MemoryPanelProps extends BaseComponentProps {
   memory: Record<string, any>;
   onMemoryUpdate?: (key: string, value: any) => void;
   onMemoryDelete?: (key: string) => void;
 }
 
-// 事件日志类型
+// Event log props
+export interface AgentEvent {
+  id: string;
+  type: string;
+  data: any;
+  timestamp: Date;
+}
+
 export interface EventLogProps extends BaseComponentProps {
   events: AgentEvent[];
   maxEvents?: number;
   showTimestamp?: boolean;
 }
 
-// 配置面板类型
+// Config panel props
 export interface ConfigPanelProps extends BaseComponentProps {
   config: {
     model: string;

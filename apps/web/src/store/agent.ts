@@ -15,7 +15,7 @@ interface Agent {
 
 interface Message {
   id: string;
-  role: string;
+  role: 'user' | 'assistant' | 'system' | 'tool';
   content: string;
   timestamp: Date;
   metadata?: Record<string, any>;
