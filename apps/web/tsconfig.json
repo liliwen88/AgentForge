@@ -17,8 +17,13 @@
       "@/*": ["./src/*"],
       "@agentforge/components": ["../../packages/components/src"],
       "@agentforge/core": ["../../packages/core/src"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../packages/components/src/**/*.ts", "../../packages/components/src/**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../packages/components/src/**/*.ts", "../../packages/components/src/**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
