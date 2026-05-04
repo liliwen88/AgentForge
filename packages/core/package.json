@@ -10,7 +10,7 @@
     "test": "vitest",
     "lint": "eslint src --ext .ts",
     "type-check": "tsc --noEmit",
-    "clean": "rimraf dist"}
+    "clean": "rimraf dist"
   },
   "keywords": [
     "ai-agent",
