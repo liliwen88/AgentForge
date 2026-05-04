@@ -93,7 +93,7 @@ AgentForge is based on the LLM programming pitfalls observed by Andrej Karpathy,
 
 ### Frontend
 - **Framework**: Next.js 14 (App Router)
-- **UI**: TailwindCSS + shadcn/ui
+- **UI**: TailwindCSS (shadcn/ui components are available as optional templates)
 - **State Management**: Zustand
 - **Type Checking**: TypeScript strict mode
 
@@ -106,8 +106,8 @@ AgentForge is based on the LLM programming pitfalls observed by Andrej Karpathy,
 
 ### AI Integration
 - **SDK**: OpenAI, Anthropic official SDKs
-- **Vector Database**: Pinecone/Chroma
-- **Local Models**: Ollama integration
+- **Vector Database (optional)**: Pinecone/Chroma (available via optional integration packages)
+- **Local Models (optional)**: Ollama (available via optional integration)
 - **Tool Calling**: Function calling standardization
 
 ## 📚 Documentation
