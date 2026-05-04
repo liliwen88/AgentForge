@@ -1,0 +1,46 @@
+{
+  "name": "fullstack",
+  "description": "全栈项目模板",
+  "files": {
+    "package.json": {
+      "name": "{{projectName}}",
+      "version": "0.1.0",
+      "description": "AgentForge 全栈应用",
+      "private": true,
+      "workspaces": ["packages/*", "apps/*"],
+      "scripts": {
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "test": "turbo run test",
+        "lint": "turbo run lint"
+      },
+      "dependencies": {
+        "@agentforge/core": "^0.1.0",
+        "@agentforge/components": "^0.1.0",
+        "@agentforge/tools": "^0.1.0",
+        "@agentforge/web": "^0.1.0",
+        "@agentforge/api": "^0.1.0",
+        "next": "^14.0.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "fastify": "^4.25.2",
+        "zustand": "^4.4.7",
+        "zod": "^3.22.4",
+        "prisma": "^5.7.1"
+      }
+    },
+    "turbo.json": {
+      "$schema": "https://turbo.build/schema.json",
+      "pipeline": {
+        "build": {
+          "dependsOn": ["^build"],
+          "outputs": ["dist/**", ".next/**"]
+        },
+        "dev": {
+          "cache": false,
+          "persistent": true
+        }
+      }
+    }
+  }
+}

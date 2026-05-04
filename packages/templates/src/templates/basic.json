@@ -1,0 +1,45 @@
+{
+  "name": "basic",
+  "description": "基础Agent项目模板",
+  "files": {
+    "package.json": {
+      "name": "{{projectName}}",
+      "version": "0.1.0",
+      "description": "AgentForge 基础项目",
+      "private": true,
+      "scripts": {
+        "dev": "tsx src/index.ts",
+        "build": "tsc",
+        "test": "vitest"
+      },
+      "dependencies": {
+        "@agentforge/core": "^0.1.0"
+      },
+      "devDependencies": {
+        "@types/node": "^20.10.0",
+        "tsx": "^4.6.0",
+        "typescript": "^5.3.0",
+        "vitest": "^1.0.0"
+      }
+    },
+    "tsconfig.json": {
+      "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist",
+        "rootDir": "./src"
+      },
+      "include": ["src/**/*"],
+      "exclude": ["node_modules", "dist"]
+    }
+  },
+  "src": {
+    "index.ts": "import { BaseAgent } from '@agentforge/core';\n\nconst config = {\n  name: '{{agentName}}',\n  description: 'My first Agent',\n  model: 'gpt-3.5-turbo',\n  temperature: 0.7,\n};\n\nconst agent = new BaseAgent(config);\n\nasync function main() {\n  await agent.start();\n  console.log('Agent started!');\n}\n\nmain();",
+    "agents/example.ts": "import { BaseAgent } from '@agentforge/core';\n\nexport class ExampleAgent extends BaseAgent {\n  protected async handleMessage(message: any): Promise<void> {\n    console.log('Received:', message.content);\n  }\n}"
+  }
+}

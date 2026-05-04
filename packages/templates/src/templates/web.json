@@ -1,0 +1,27 @@
+{
+  "name": "web",
+  "description": "Web应用项目模板",
+  "files": {
+    "package.json": {
+      "name": "{{projectName}}",
+      "version": "0.1.0",
+      "description": "AgentForge Web应用",
+      "private": true,
+      "workspaces": ["packages/*", "apps/*"],
+      "scripts": {
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "test": "turbo run test"
+      },
+      "dependencies": {
+        "@agentforge/core": "^0.1.0",
+        "@agentforge/components": "^0.1.0",
+        "@agentforge/web": "^0.1.0",
+        "next": "^14.0.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "zustand": "^4.4.7"
+      }
+    }
+  }
+}
