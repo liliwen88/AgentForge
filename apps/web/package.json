@@ -9,14 +9,14 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next dist"
+    "clean": "rimraf .next dist"
   },
   "dependencies": {
     "next": "14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@agentforge/core": "^0.1.0",
-    "@agentforge/components": "^0.1.0",
+    "@agentforge/core": "workspace:*",
+    "@agentforge/components": "workspace:*",
     "zustand": "^4.4.7",
     "@tanstack/react-query": "^5.12.2",
     "axios": "^1.6.2",

@@ -10,15 +10,15 @@
     "test": "vitest",
     "lint": "eslint src --ext .ts",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf dist",
+    "clean": "rimraf dist",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:studio": "prisma studio"
   },
   "dependencies": {
-    "@agentforge/core": "^0.1.0",
-    "@agentforge/tools": "^0.1.0",
+    "@agentforge/core": "workspace:*",
+    "@agentforge/tools": "workspace:*",
     "fastify": "^4.25.2",
     "@fastify/cors": "^8.4.2",
     "@fastify/helmet": "^11.1.1",

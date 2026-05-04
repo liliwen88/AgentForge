@@ -10,7 +10,7 @@
     "test": "vitest",
     "lint": "eslint src --ext .ts",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "clean": "rimraf dist"
   },
   "keywords": [
     "ai-tools",
