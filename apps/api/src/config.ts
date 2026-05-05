@@ -4,5 +4,6 @@ export const config = {
   corsOrigin: process.env.CORS_ORIGIN || '*',
   openaiApiKey: process.env.OPENAI_API_KEY || '',
   anthropicApiKey: process.env.ANTHROPIC_API_KEY || '',
+  deepseekApiKey: process.env.DEEPSEEK_API_KEY || '',
   databaseUrl: process.env.DATABASE_URL || 'file:./dev.db',
 };
